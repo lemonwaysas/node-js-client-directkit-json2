@@ -1,10 +1,10 @@
 // Install request module: npm install request --save
-// Install promise module: npm install request --save
+// Install promise module: npm install promise --save
 
 // Load the API methods
 const methods = require('./methods.js');
 
-// Create a token generator with for a random wallet ID:
+// Create a token generator with for a random wallet ID
 const uid = require('rand-token').uid;
 
 // Register a Payer Wallet
