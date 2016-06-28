@@ -311,6 +311,5 @@ promiseMoneyOut.then(function(value) {
 	}).then(function(GetWalletDetailsResult) {
 		console.log("\n---------- Receiver Wallet " + receiverWallet + " after Money Out ----------");
 		console.log(GetWalletDetailsResult.WALLET.BAL);
-		resolve("Done.");
 	});
 });
