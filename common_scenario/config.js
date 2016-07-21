@@ -8,7 +8,7 @@ exports.wlLogin 	= "society";
 exports.wlPass 		= "123456";
 exports.language 	= "en";
 exports.walletIp 	= "1.1.1.1";
-exports.walletUa 	= "ua";
+exports.walletUa 	= "Node.js Tutorial";
 
 exports.sendRequest = function(methodName, postData) {
 	// Configure
