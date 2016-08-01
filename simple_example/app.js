@@ -29,7 +29,7 @@ var postData = {
   "language": "en",
   "version":  "1.9",
   "walletIp": "1.1.1.1",
-  "walletUa": "ua",
+  "walletUa": "Node.js Tutorial",
   "wallet":   "testSDD",
   "email":    ""
 };
