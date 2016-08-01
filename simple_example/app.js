@@ -3,7 +3,7 @@
 // Load the request module
 var request = require('request');
 
-var urlDirectkit = "https://sandbox-api.lemonway.fr/mb/dat/dev/directkitjson/Service.asmx/"
+var urlDirectkit = "https://sandbox-api.lemonway.fr/mb/demo/dev/directkitjson/Service.asmx/"
 
 function sendRequest(methodName, postData, callback) {
   // Configure

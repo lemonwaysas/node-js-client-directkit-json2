@@ -1,4 +1,4 @@
-const urlDirectkit = "https://sandbox-api.lemonway.fr/mb/dat/dev/directkitjson/Service.asmx/"
+const urlDirectkit = "https://sandbox-api.lemonway.fr/mb/demo/dev/directkitjson/Service.asmx/"
 
 // Load the request module
 const request = require('request');
