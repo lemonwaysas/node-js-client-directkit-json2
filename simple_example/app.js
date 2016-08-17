@@ -3,7 +3,7 @@
 // Load the request module
 var request = require('request');
 
-var urlDirectkit = "https://sandbox-api.lemonway.fr/mb/demo/dev/directkitjson/Service.asmx/"
+var urlDirectkit = "https://sandbox-api.lemonway.fr/mb/demo/dev/directkitjson2/Service.asmx/"
 
 function sendRequest(methodName, postData, callback) {
   // Configure
@@ -24,14 +24,15 @@ var methodName = "GetWalletDetails";
 
 // Parameters
 var postData = {
-  "wlLogin":  "society",
-  "wlPass":   "123456",
-  "language": "en",
-  "version":  "1.9",
-  "walletIp": "1.1.1.1",
-  "walletUa": "Node.js Tutorial",
-  "wallet":   "testSDD",
-  "email":    ""
+  "p": {
+    "wlLogin":  "society",
+    "wlPass":   "123456",
+    "language": "en",
+    "version":  "1.9",
+    "walletIp": "1.1.1.1",
+    "walletUa": "Node.js Tutorial",
+    "wallet":   "TEST123456"
+  }
 };
 
 // Callback function

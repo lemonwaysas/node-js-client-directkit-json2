@@ -1,24 +1,30 @@
-const urlDirectkit = "https://sandbox-api.lemonway.fr/mb/demo/dev/directkitjson/Service.asmx/"
+const urlDirectkit = "https://sandbox-api.lemonway.fr/mb/demo/dev/directkitjson2/Service.asmx/"
 
 // Load the request module
 const request = require('request');
 exports.Promise = require('promise');
 
-exports.wlLogin 	= "society";
-exports.wlPass 		= "123456";
-exports.language 	= "en";
-exports.walletIp 	= "1.1.1.1";
-exports.walletUa 	= "Node.js Tutorial";
+var commonParams = {
+	"wlLogin":  "society",
+	"wlPass":   "123456",
+	"language": "en",
+	"walletIp": "1.1.1.1",
+	"walletUa": "Node.js Tutorial",
+}
 
 exports.sendRequest = function(methodName, postData) {
 	// Configure
+	for (var param in commonParams) {
+		postData[param] = commonParams[param];
+	}
+
 	var options = {
 		url: urlDirectkit + methodName,
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json; charset=utf-8"
 		},
-		json: postData
+		json: { "p": postData }
 	};
 
 	// Use promise to avoid callback hell

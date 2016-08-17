@@ -11,29 +11,10 @@ const uid = require('rand-token').uid;
 var payerWallet = uid(16);
 var promiseRegisterPayerWallet = new Promise(function (resolve, reject) {
 	methods.RegisterWallet({
-		"wallet": 						payerWallet,
-		"clientMail": 					payerWallet + "@lemonway.com",
-		"clientTitle": 					"",
-		"clientFirstName": 				"Payer",
-		"clientLastName": 				"Payer",
-		"street": 						"",
-		"postCode": 					"",
-		"city": 						"",
-		"ctry": 						"",
-		"birthdate": 					"",
-		"phoneNumber": 					"",
-		"mobileNumber": 				"",
-		"isCompany": 					"",
-		"companyName": 					"",
-		"companyWebsite": 				"",
-		"companyDescription": 			"",
-		"companyIdentificationNumber": 	"",
-		"isDebtor": 					"",
-		"nationality": 					"",
-		"birthcity": 					"",
-		"birthcountry": 				"",
-		"payerOrBeneficiary": 			"",
-		"isOneTimeCustomer": 			""
+		"wallet": 			payerWallet,
+		"clientMail": 		payerWallet + "@lemonway.com",
+		"clientFirstName": 	"Payer",
+		"clientLastName": 	"Payer"
 	}).then(function(RegisterWalletResult) {
 		console.log("\n---------- Payer Wallet created: " + payerWallet + " ----------");
 		console.log(RegisterWalletResult.WALLET);
@@ -45,8 +26,7 @@ var promiseRegisterPayerWallet = new Promise(function (resolve, reject) {
 var promiseGetWalletDetailsPayerWallet = new Promise(function (resolve, reject) {
 	promiseRegisterPayerWallet.then(function(value) {
 		methods.GetWalletDetails({
-			"wallet": payerWallet,
-			"email" : ""
+			"wallet": payerWallet
 		}).then(function(GetWalletDetailsResult) {
 			console.log("\n---------- Payer Wallet: " + payerWallet + " ----------");
 			console.log(GetWalletDetailsResult.WALLET);
@@ -60,29 +40,10 @@ var receiverWallet = uid(16);
 var promiseRegisterReceiverWallet = new Promise(function (resolve, reject) {
 	promiseGetWalletDetailsPayerWallet.then(function(value) {
 		methods.RegisterWallet({
-			"wallet": 						receiverWallet,
-			"clientMail": 					receiverWallet + "@lemonway.com",
-			"clientTitle": 					"",
-			"clientFirstName": 				"Receiver",
-			"clientLastName": 				"Receiver",
-			"street": 						"",
-			"postCode": 					"",
-			"city": 						"",
-			"ctry": 						"",
-			"birthdate": 					"",
-			"phoneNumber": 					"",
-			"mobileNumber": 				"",
-			"isCompany": 					"",
-			"companyName": 					"",
-			"companyWebsite": 				"",
-			"companyDescription": 			"",
-			"companyIdentificationNumber": 	"",
-			"isDebtor": 					"",
-			"nationality": 					"",
-			"birthcity": 					"",
-			"birthcountry": 				"",
-			"payerOrBeneficiary": 			"",
-			"isOneTimeCustomer": 			""
+			"wallet": 			receiverWallet,
+			"clientMail": 		receiverWallet + "@lemonway.com",
+			"clientFirstName": 	"Receiver",
+			"clientLastName": 	"Receiver"
 		}).then(function(RegisterWalletResult) {
 			console.log("\n---------- Receiver Wallet created: " + receiverWallet + " ----------");
 			console.log(RegisterWalletResult.WALLET);
@@ -95,7 +56,6 @@ var promiseRegisterReceiverWallet = new Promise(function (resolve, reject) {
 var promiseGetWalletDetailsReceiverWallet = new Promise(function (resolve, reject) {
 	promiseRegisterReceiverWallet.then(function(value) {
 		methods.GetWalletDetails({
-			"wallet": "",
 			"email" : receiverWallet + "@lemonway.com"
 		}).then(function(GetWalletDetailsResult) {
 			console.log("\n---------- Receiver Wallet: " + receiverWallet + " ----------");
@@ -109,28 +69,8 @@ var promiseGetWalletDetailsReceiverWallet = new Promise(function (resolve, rejec
 var promiseUpdateWalletDetails =  new Promise(function (resolve, reject) {
 	promiseGetWalletDetailsReceiverWallet.then(function(value) {
 		methods.UpdateWalletDetails({
-			"wallet": 							receiverWallet,
-			"newEmail": 						"new_" + receiverWallet + "@lemonway.com",
-		    "newTitle": 						"",
-		    "newFirstName": 					"",
-		    "newLastName": 						"",
-		    "newStreet": 						"",
-		    "newPostCode": 						"",
-		    "newCity": 							"",
-		    "newCtry": 							"",
-		    "newIp": 							"",
-		    "newPhoneNumber": 					"",
-		    "newMobileNumber": 					"",
-		    "newBirthDate": 					"",
-		    "newIsCompany": 					"",
-		    "newCompanyName": 					"",
-		    "newCompanyWebsite": 				"",
-		    "newCompanyDescription": 			"",
-		    "newCompanyIdentificationNumber": 	"",
-		    "newIsDebtor": 						"",
-		    "newNationality": 					"",
-		    "newBirthcity": 					"",
-		    "newBirthcountry": 					""
+			"wallet": 	receiverWallet,
+			"newEmail": "new_" + receiverWallet + "@lemonway.com"
 		}).then(function(UpdateWalletDetailsResult) {
 			console.log("\n---------- Update email of Receiver: " + receiverWallet + " ----------");
 			console.log(UpdateWalletDetailsResult.WALLET);
@@ -143,8 +83,7 @@ var promiseUpdateWalletDetails =  new Promise(function (resolve, reject) {
 var promiseGetWalletDetailsUpdated =  new Promise(function (resolve, reject) {
 	promiseUpdateWalletDetails.then(function(value) {
 		methods.GetWalletDetails({
-			"wallet": receiverWallet,
-			"email" : ""
+			"wallet": receiverWallet
 		}).then(function(GetWalletDetailsResult) {
 			console.log("\n---------- Email of Receiver " + receiverWallet + " is updated ----------");
 			console.log(GetWalletDetailsResult.WALLET.EMAIL);
@@ -174,16 +113,11 @@ var promiseCardId = new Promise(function (resolve, reject) {
 var promiseMoneyInWithCardId = new Promise(function (resolve, reject) {
 	promiseCardId.then(function(cardId) {
 		methods.MoneyInWithCardId({
-			"wallet": 			payerWallet,
-			"cardId": 			cardId,
-		    "amountTot": 		"100.00",
-		    "amountCom": 		"10.00",
-		    "comment": 			"(Node.js tuto) MoneyInWithCardId 100.00€ to Payer",
-		    "autoCommission": 	"",
-		    "isPreAuth": 		"",
-		    "specialConfig": 	"",
-		    "delayedDays": 		"",
-		    "wkToken": 			""
+			"wallet": 		payerWallet,
+			"cardId": 		cardId,
+		    "amountTot": 	"100.00",
+		    "amountCom": 	"10.00",
+		    "comment": 		"(Node.js tuto) MoneyInWithCardId 100.00€ to Payer"
 		}).then(function(MoneyInWithCardIdResult) {
 			console.log("\n---------- MoneyInWithCardId: 100.00€ to Payer " +payerWallet + " ----------");
 			console.log(MoneyInWithCardIdResult.TRANS);
@@ -196,8 +130,7 @@ var promiseMoneyInWithCardId = new Promise(function (resolve, reject) {
 var promiseGetWalletDetailsPayerWalletCredited = new Promise(function (resolve, reject) {
 	promiseMoneyInWithCardId.then(function(value) {
 		methods.GetWalletDetails({
-			"wallet": payerWallet,
-			"email" : ""
+			"wallet": payerWallet
 		}).then(function(GetWalletDetailsResult) {
 			console.log("\n---------- Payer Wallet credited: " + payerWallet + " ----------");
 			console.log(GetWalletDetailsResult.WALLET.BAL);
@@ -210,12 +143,10 @@ var promiseGetWalletDetailsPayerWalletCredited = new Promise(function (resolve, 
 var promiseSendPayment = new Promise(function (resolve, reject) {
 	promiseGetWalletDetailsPayerWalletCredited.then(function(value) {
 		methods.SendPayment({
-			"debitWallet": 		payerWallet,
-			"creditWallet": 	receiverWallet,
-			"amount": 			"10.00",
-			"message": 			"(Node.js tuto) SendPayment 10.00€ from Payer to Receiver",
-			"scheduledDate": 	"",
-			"privateData": 		""
+			"debitWallet": 	payerWallet,
+			"creditWallet": receiverWallet,
+			"amount": 		"10.00",
+			"message": 		"(Node.js tuto) SendPayment 10.00€ from Payer to Receiver"
 		}).then(function(SendPaymentResult) {
 			console.log("\n---------- SendPayment: 10.00€ from Payer " + payerWallet + " to Receiver " + receiverWallet + " ----------");
 			console.log(SendPaymentResult.TRANS_SENDPAYMENT);
@@ -228,8 +159,7 @@ var promiseSendPayment = new Promise(function (resolve, reject) {
 var promiseGetWalletDetailsPayerDebited = new Promise(function (resolve, reject) {
 	promiseSendPayment.then(function(value) {
 		methods.GetWalletDetails({
-			"wallet": payerWallet,
-			"email" : ""
+			"wallet": payerWallet
 		}).then(function(GetWalletDetailsResult) {
 			console.log("\n---------- Payer Wallet debited: " + payerWallet + " ----------");
 			console.log(GetWalletDetailsResult.WALLET.BAL);
@@ -242,8 +172,7 @@ var promiseGetWalletDetailsPayerDebited = new Promise(function (resolve, reject)
 var promiseGetWalletDetailsReceiverCredited = new Promise(function (resolve, reject) {
 	promiseGetWalletDetailsPayerDebited.then(function(value) {
 		methods.GetWalletDetails({
-			"wallet": receiverWallet,
-			"email" : ""
+			"wallet": receiverWallet
 		}).then(function(GetWalletDetailsResult) {
 			console.log("\n---------- Receiver Wallet credited: " + receiverWallet + " ----------");
 			console.log(GetWalletDetailsResult.WALLET.BAL);
@@ -275,8 +204,7 @@ var promiseRegisterIBAN = new Promise(function (resolve, reject) {
 var promiseGetWalletDetailsReceiverIBAN = new Promise(function (resolve, reject) {
 	promiseRegisterIBAN.then(function(value) {
 		methods.GetWalletDetails({
-			"wallet": receiverWallet,
-			"email" : ""
+			"wallet": receiverWallet
 		}).then(function(GetWalletDetailsResult) {
 			console.log("\n---------- IBAN of Receiver Wallet " + receiverWallet + " ----------");
 			console.log(GetWalletDetailsResult.WALLET.IBANS);
@@ -291,7 +219,6 @@ var promiseMoneyOut = new Promise(function (resolve, reject) {
 		methods.MoneyOut({
 			"wallet": 			receiverWallet,
 		    "amountTot": 		"10.00",
-	        "amountCom": 		"",
 	        "message": 			"(Node.js tuto) Money Out 10.00€",
 	        "ibanId": 			ibanId,
 	        "autoCommission": 	"1"
@@ -306,8 +233,7 @@ var promiseMoneyOut = new Promise(function (resolve, reject) {
 // Receiver Wallet after the Money Out: 0.00€
 promiseMoneyOut.then(function(value) {
 	methods.GetWalletDetails({
-		"wallet": receiverWallet,
-		"email" : ""
+		"wallet": receiverWallet
 	}).then(function(GetWalletDetailsResult) {
 		console.log("\n---------- Receiver Wallet " + receiverWallet + " after Money Out ----------");
 		console.log(GetWalletDetailsResult.WALLET.BAL);
