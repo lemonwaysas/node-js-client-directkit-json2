@@ -1,4 +1,4 @@
-# node-js-client-directkit-json
+# node-js-client-directkit-json2
 
 1. Simple Example
   - GetWalletDetails
