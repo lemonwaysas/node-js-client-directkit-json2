@@ -15,7 +15,7 @@ You will find 2 examples here
   - Pay 100.00€ to Payer Wallet with the registered card ([MoneyInWithCardId])
   - Transfer 10.00€ from Payer Wallet to Receiver Wallet ([SendPayment])
   - Register an IBAN for Receiver Wallet ([RegisterIBAN])
-  - Transfer 10.00€ from Receiver Wallet to the real bank account withe the registered IBAN account ([MoneyOut])
+  - Transfer 10.00€ from Receiver Wallet to the real bank account with the registered IBAN ([MoneyOut])
 
 [RegisterWallet]: http://documentation.lemonway.fr/api-en/directkit/manage-wallets/registerwallet-creating-a-new-wallet
 [UpdateWalletDetails]: http://documentation.lemonway.fr/api-en/directkit/manage-wallets/updatewalletdetails-update-wallet-data
