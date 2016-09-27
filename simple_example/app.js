@@ -1,4 +1,4 @@
-// Install the request module: npm install request -g
+// Install the request module: npm install request --save
 
 // Load the request module
 var request = require('request');
