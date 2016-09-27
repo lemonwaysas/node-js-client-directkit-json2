@@ -1,5 +1,6 @@
 // Install request module: npm install request --save
 // Install promise module: npm install promise --save
+// Install rand-token module: npm install rand-token --save
 
 // Load the API methods
 const methods = require('./methods.js');
