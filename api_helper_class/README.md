@@ -1,0 +1,1 @@
+This is a Helper Class to be used in Meteor.

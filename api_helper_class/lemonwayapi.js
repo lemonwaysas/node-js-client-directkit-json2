@@ -3,6 +3,7 @@
   Author: Jonathan Forrider
   Author Website: http://jfwebdesigns.altervista.org/
   Description: A Class used to build the connection to the Lemonway Payment Processor
+  Dependencies: Meteor and http meteor module
 */
 import { HTTP } from 'meteor/http'
 
