@@ -1,3 +1,5 @@
+⚠️WARNING: This client is deprecated⚠️ 
+
 This example shows how to call the [Lemonway API](http://documentation.lemonway.fr) in NodeJs
 
 You will have to send a [HTTP POST request (in the right format)](http://documentation.lemonway.fr/api-en/directkit/overview/requests-and-responses) to the API end point that we prepared for you.
